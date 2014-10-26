@@ -1,60 +1,51 @@
 package grafos;
 import java.io.*;
-
 public class AD02_2014_2{
-	
 	public static void main(String[] args) throws IOException{
 		BufferedReader arqLigPoss;
 		BufferedReader arqLigObri;
 		String linha;
 		String[] vLinha;
-		int[] parametrosGrafo = new int[3];
-		GrafoLigPoss ligacoesPossiveis = null;
-							
+		int[][] ligPoss;
+		
 		try{
-			//Os caminhos dos arquivos utilizados foram passados por argumento
-			//e serão pegos no args[]
-			
 			arqLigPoss = new BufferedReader(new FileReader(args[0]));
 			arqLigObri = new BufferedReader(new FileReader(args[1]));
 			
-			//Linhas de Teste - Verificar se pegou a Strings passadas no Args[]
-			System.out.println(args[0]);
-			System.out.println(args[1]);
-			//Fim da Linha de Teste
-			
-			//Procura o numero de vertices na primeira linha com numero e inicializa o Grafo
+			//CONSTRÓI A MATRIZ DE ADJACENCIA COM AS LIGAÇÕES POSSÍVEIS
 			while ((linha = arqLigPoss.readLine()) != null){
 				vLinha = linha.split(" ");
 				if(isNumber(vLinha[0])){
-					ligacoesPossiveis = new GrafoLigPoss(Integer.parseInt(vLinha[0]));
+					ligPoss = new int[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[0])];
 					//Constroi as outras linhas do grafo
 					while((linha = arqLigPoss.readLine()) != null){
 						vLinha = linha.split(" ");
-						ligacoesPossiveis.addAresta(parametrosGrafo[0], parametrosGrafo[1], parametrosGrafo[2]);
+						ligPoss[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[1])] = Integer.parseInt(vLinha[2]);
+						ligPoss[Integer.parseInt(vLinha[1])][Integer.parseInt(vLinha[0])] = Integer.parseInt(vLinha[2]);
 					}
 					break;
 				}
 			}
-			arqLigPoss.close();
-			arqLigObri.close();
+			
+			//CONSTRÓI A LISTA DAS LIGAÇÕES OBRIGATÓRIAS
+			while ((linha = arqLigPoss.readLine()) != null){
+				vLinha = linha.split(" ");
+				if(isNumber(vLinha[0])){
+					matriz = new int[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[0])];
+					//Constroi as outras linhas do grafo
+					while((linha = arqLigPoss.readLine()) != null){
+						vLinha = linha.split(" ");
+						matriz[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[1])] = Integer.parseInt(vLinha[2]);
+						matriz[Integer.parseInt(vLinha[1])][Integer.parseInt(vLinha[0])] = Integer.parseInt(vLinha[2]);
+					}
+					break;
+				}
+			}
 		}
-		catch(Exception e){
+		catch(IOException e){
 			System.out.println(e);
 		}
 		
-		//TESTE//
-		
-		System.out.println(ligacoesPossiveis.getNumVertices());
-	}
-	
-	public static boolean isNumber(String s){
-		try{
-			Integer.parseInt(s);
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
 	}
 }
+
