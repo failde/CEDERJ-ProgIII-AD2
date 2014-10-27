@@ -19,7 +19,7 @@ public class AD02_2014_2{
 				if(isNumber(vLinha[0])){
 					ligPoss.criaMatriz(vLinha[0]);
 					
-					//CONSTROI AS OUTRAS LINHAS DO GRAFO
+					//ADICIONA AS ARESTAS A MATRIZ
 					while((linha = arqLigPoss.readLine()) != null){
 						vLinha = linha.split(" ");
 						ligPoss.addAresta(vLinha[0], vLinha[1], vLinha[2]);

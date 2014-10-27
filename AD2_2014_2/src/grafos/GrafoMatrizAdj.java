@@ -21,6 +21,7 @@ public class GrafoMatrizAdj {
 		}
 	}
 	
+	// MÉTODO CRIADO PARA VERIFICAR FUNCIONAMENTO DA CLASSE
 	public void imprimeMatrizAdj(){
 		for(int i=0;i<tamMatriz;i++){
 			for(int j=0;j<tamMatriz;j++){
@@ -32,5 +33,9 @@ public class GrafoMatrizAdj {
 	public void addAresta(String v1, String v2, String c){
 		matrizAdj[Integer.parseInt(v1) - 1][Integer.parseInt(v2) - 1] = Float.parseFloat(c);
 		matrizAdj[Integer.parseInt(v2) - 1][Integer.parseInt(v1) - 1] = Float.parseFloat(c);
+	}
+	
+	public int getTamMatriz(){
+		return tamMatriz;
 	}
 }
