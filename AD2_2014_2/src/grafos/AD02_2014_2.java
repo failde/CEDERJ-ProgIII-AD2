@@ -33,17 +33,18 @@ public class AD02_2014_2{
 						matrizAdj[Integer.parseInt(vLinha[0]) - 1][Integer.parseInt(vLinha[1]) - 1] = Integer.parseInt(vLinha[2]);
 						matrizAdj[Integer.parseInt(vLinha[1]) - 1][Integer.parseInt(vLinha[0]) - 1] = Integer.parseInt(vLinha[2]);
 					}
+					//IMPRESSÃO DA MATRIZ PARA TESTE
 					imprimeMatriz(matrizAdj,tamanhoMatriz);
 					break;
 				}
 			}
-			
+			/*
 			//CONSTRÓI A LISTA DAS LIGAÇÕES OBRIGATÓRIAS
 			while ((linha = arqLigPoss.readLine()) != null){
 				vLinha = linha.split(" ");
 				if(isNumber(vLinha[0])){
 					matrizAdj = new float[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[0])];
-					//Constroi as outras linhas do grafo
+					//CONSTROI AS OUTRAS LINHAS DO GRAFO
 					while((linha = arqLigPoss.readLine()) != null){
 						vLinha = linha.split(" ");
 						matrizAdj[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[1])] = Integer.parseInt(vLinha[2]);
@@ -51,7 +52,7 @@ public class AD02_2014_2{
 					}
 					break;
 				}
-			}  
+			} */  
 		}
 		catch(IOException e){
 			System.out.println(e);
