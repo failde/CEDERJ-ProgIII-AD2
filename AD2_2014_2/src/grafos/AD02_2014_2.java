@@ -17,7 +17,8 @@ public class AD02_2014_2{
 				vLinha = linha.split(" ");
 				if(isNumber(vLinha[0])){
 					ligPoss = new int[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[0])];
-					//Constroi as outras linhas do grafo
+					
+					//CONSTROI AS OUTRAS LINHAS DO GRAFO
 					while((linha = arqLigPoss.readLine()) != null){
 						vLinha = linha.split(" ");
 						ligPoss[Integer.parseInt(vLinha[0])][Integer.parseInt(vLinha[1])] = Integer.parseInt(vLinha[2]);
