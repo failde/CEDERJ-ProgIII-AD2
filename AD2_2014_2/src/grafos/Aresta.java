@@ -1,29 +1,37 @@
 package grafos;
 
 public class Aresta {
-	private int vertice;
-	private int custo;
-	private Aresta aresta;
+	private Vertice vertice1 = null;
+	private Vertice vertice2 = null;
+	private float custo = Float.POSITIVE_INFINITY;
 	
-	public Aresta(int i, int j, int c){
-		vertice = i;
+	public Aresta(Vertice i, Vertice j, float c){
+		vertice1 = i;
+		vertice2 = j;
 		custo = c;
-		aresta = new Aresta(j,i,c);
 	}
 	
-	public int getVertice(){
-		return vertice;
+	public Vertice getVertice1(){
+		return vertice1;
 	}
 	
-	public int getCusto(){
+	public Vertice getVertice2(){
+		return vertice2;
+	}
+	
+	public float getCusto(){
 		return custo;
 	}
 	
-	public Aresta getAresta(){
-		return aresta;
+	public void setVertice1(Vertice v1){
+		this.vertice1 = v1;
 	}
 	
-	public int getVerticeAresta(){
-		return aresta.getVertice();
+	public void setVertice2(Vertice v2){
+		this.vertice2 = v2;
+	}
+	
+	public void setCusto(float c){
+		this.custo = c;
 	}
 }
