@@ -1,5 +1,7 @@
 package grafos;
+
 import java.io.*;
+
 public class AD02_2014_2{
 	public static void main(String[] args) throws IOException{
 		BufferedReader arqLigPoss;

@@ -21,6 +21,18 @@ public class GrafoMatrizAdj {
 		}
 	}
 	
+	public void criaMatriz(int tamanho){
+		matrizAdj = new float[tamanho][tamanho];
+		for(int i=0;i<tamanho;i++){
+			for(int j=0;j<tamanho;j++){
+				if (i != j)
+					matrizAdj[i][j] = Float.POSITIVE_INFINITY;
+				else
+					matrizAdj[i][j] = 0F;
+			}
+		}
+	}
+	
 	// MÉTODO CRIADO PARA VERIFICAR FUNCIONAMENTO DA CLASSE
 	public void imprimeMatrizAdj(){
 		for(int i=0;i<tamMatriz;i++){
@@ -33,6 +45,12 @@ public class GrafoMatrizAdj {
 	public void addAresta(String v1, String v2, String c){
 		matrizAdj[Integer.parseInt(v1) - 1][Integer.parseInt(v2) - 1] = Float.parseFloat(c);
 		matrizAdj[Integer.parseInt(v2) - 1][Integer.parseInt(v1) - 1] = Float.parseFloat(c);
+	}
+	
+	public boolean existeAresta(int v1, int v2){
+		if (matrizAdj[v1][v2] != Float.POSITIVE_INFINITY)
+			return true;
+		return false;
 	}
 	
 	public int getTamMatriz(){
